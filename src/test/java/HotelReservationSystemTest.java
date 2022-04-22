@@ -2,18 +2,17 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class HotelReservationSystemTest {
-
+    HotelReservationSystem hotelReservation = new HotelReservationSystem();
     @Test
-    void whenAddedHotel_shouldReturn_hotelAdded() {
-        HotelReservationSystem hotelReservation = new HotelReservationSystem();
-        try {
-            boolean isValid1 = hotelReservation.addHotel(new Hotel("LakeWood", 110));
+    public void whenAddedHotel_ShouldReturn_AddedHotel() {
+        try{
+            boolean isValid1 = hotelReservation.addHotel( new Hotel("LakeWood","Regular",110, 90));
             Assert.assertTrue(isValid1);
-            boolean isValid2 = hotelReservation.addHotel(new Hotel("Bridgewood", 160));
+            boolean isValid2 = hotelReservation.addHotel( new Hotel("Bridgewood","Regular",160, 50));
             Assert.assertTrue(isValid2);
-            boolean isValid3 = hotelReservation.addHotel(new Hotel("Ridgewood", 220));
+            boolean isValid3 = hotelReservation.addHotel( new Hotel("Ridgewood","Regular",220, 150));
             Assert.assertTrue(isValid3);
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -23,4 +22,10 @@ class HotelReservationSystemTest {
             HotelReservationSystem cheapHotel = new HotelReservationSystem();
             cheapHotel.findCheapestHotel();
         }
+
+    @Test
+    public void toFindTheCheapestHotel_OnWeekdayAndWeekend() {
+        HotelReservationSystem cheapHotel = new HotelReservationSystem();
+        cheapHotel.findCheapestHotel_Weekday_Weekend();
+    }
     }
