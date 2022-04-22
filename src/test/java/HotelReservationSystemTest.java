@@ -17,4 +17,10 @@ class HotelReservationSystemTest {
             e.printStackTrace();
         }
     }
-}
+
+    @Test
+    public void toFindTheChepeastHotel () {
+            HotelReservationSystem cheapHotel = new HotelReservationSystem();
+            cheapHotel.findCheapestHotel();
+        }
+    }
